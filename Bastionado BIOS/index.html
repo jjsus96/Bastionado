@@ -1,0 +1,109 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="Bastionado BIOS"
+                  title=""
+                  environment="web"
+                  feedback-link="">
+    
+      <google-codelab-step label="Contraseña de usuario o power on (HDD password):" duration="0">
+        <p>Al activar esta opción, se solicita una contraseña que se solicitará cada vez que se encienda el quipo.</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/e24b3a6c23b09da3.jpeg"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Contraseña de administrador:" duration="0">
+        <p>Solicita una contraseña para poder modificar los diferentes parámetros de la BIOS.</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/1288baae6e2b99eb.jpeg"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Arranques externos:" duration="0">
+        <p>Para evitar arranques externos, desde nuestra BIOS, podemos deshabilitar las entradas USB y así no se podrá utilizar ningún medio externo para realizar esta acción.</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/5c2dc4cd7de7bc40.jpeg"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Orden de arranque:" duration="0">
+        <p>Define el orden en el que se buscarán los dispositivos para la ejecución, se ordena por prioridad de mayor a menor, lo que quiere decir que si ponemos en primer lugar un USB, buscará este para iniciar el sistema desde el mismo, en caso de no encontrarlo pasará al siguiente dispositivo en la lista de prioridad y así sucesivamente hasta que detecte un dispositivo desde el que se pueda ejecutar el arranque.</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/38e1e441649fece3.jpeg"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Secure Boot:" duration="0">
+        <p>Impide que se ejecute software que no disponga de un certificado aprobado durante el arranque del sistema. Algunas distribuciones de Linux se han adaptado con el tiempo para que se permita su ejecución cuando esta opción se encuentre activada.</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/3f7ec93c4fd3c11c.jpeg"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="POST Password:" duration="0">
+        <p>Protege la seguridad del equipo solicitando la contraseña POST al usuario para entrar a la configuración de la BIOS (Esta contraseña no puede eliminarse).</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/f6d4001971098bdf.jpeg"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Fingerprint:" duration="0">
+        <p>Sirve para activar la verificación biométrica a través de la huella dactilar usando el sensor que incorpora el portátil.</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/315a8973d5055475.jpeg"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="PXE Service:" duration="0">
+        <p>Permite ejecutar el sistema operativo y arrancarlo por red.</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/4ec67d0cb66eb979.jpeg"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="TPM/TCM:" duration="0">
+        <p>Es una tecnología que almacena y cifra en un chip información del usuario como datos confidenciales, o claves de los usuarios del equipo.</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/fba86184e76fb7d5.jpeg"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Other Wakeup Source:" duration="0">
+        <p>Esta opción permite utilizar nuestro equipo como una &#34;máquina tonta&#34; y ejecutar un sistema operativo desde una máquina remota, deshabilitando esta opción evitamos que esto pueda producirse.</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/27ff3896422f1f18.jpeg"></p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>

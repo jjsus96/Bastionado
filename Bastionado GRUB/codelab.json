@@ -1,0 +1,24 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2022-10-24T12:32:09+02:00",
+  "id": "Bastionado GRUB",
+  "duration": 0,
+  "title": "",
+  "summary": "",
+  "source": "SO.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "codelab",
+    "markdown"
+  ],
+  "tags": [
+    "web"
+  ],
+  "url": "Bastionado GRUB"
+}

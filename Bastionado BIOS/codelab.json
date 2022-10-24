@@ -1,0 +1,24 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2022-10-24T12:34:07+02:00",
+  "id": "Bastionado BIOS",
+  "duration": 0,
+  "title": "",
+  "summary": "",
+  "source": "bios.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "codelab",
+    "markdown"
+  ],
+  "tags": [
+    "web"
+  ],
+  "url": "Bastionado BIOS"
+}

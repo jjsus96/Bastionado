@@ -1,0 +1,122 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="Bastionado GRUB"
+                  title=""
+                  environment="web"
+                  feedback-link="">
+    
+      <google-codelab-step label="Ocultación del arranque:" duration="0">
+        <p>En primer lugar abrimos una terminal y accedemos como administrador con el comando su.</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/515799842d6109d2.png"></p>
+<p>A continuación accedemos al archivo /etc/default/grub con nano</p>
+<p>Para ocultar el arranque al usuario, modificamos la línea de GRUB_TIMEOUT y le asignamos un valor de 0 y guardamos el archivo.</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/d884e44d7e81ae3b.png"></p>
+<p>Para finalizar actualizamos el grub con el comando update-grub.</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/632c9f33483ac34e.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Contraseña de arranque:" duration="0">
+        <p>Para establecer la contraseña de arranque, vamos a hashearla para aportarle más seguridad, para ello introduciremos en comando grub-mkpasswd-pbkdf2</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/510dc92fd14aeced.png"></p>
+<p>En segundo lugar, con nano, modificamos el fichero de configuración del grub que se encuentra en /bootgrub/grub.cfg</p>
+<p>Asignamos a usuario del sistema como superusuario y justo debajo insertamos la contraseña encriptada.</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/1de5e13db55ebbe2.png"></p>
+<p>Ahora cada vez que iniciemos el sistema, se solicitará el usuario y la contraseña que hemos definido para poder arrancarlo.</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/d5c1f4683fef5657.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Copia de seguridad:" duration="0">
+        <p>El primer paso antes de realizar las copias de seguridad es crear el directorio en el que las vamos a almacenar, para ello usamos el comando mkdir NOMBREDIRECTORIO.</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/e3ec8560233174c2.png"></p>
+<p>Ahora vamos al directorio bin y creamos un script, que en nuestro caso se llamará copias-seguridad.sh.</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/1e81e942ea9641fc.png"></p>
+<p>Dentro de este script, lo que hacemos es identificar lo que queremos copiar y donde queremos copiarlo.</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/f97ec041c9c6a441.png"></p>
+<p>Damos permisos de ejecución a nuestro script</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/9d59b63320ce69db.png"></p>
+<p>Actualizamos el sistema y habilitamos el funcionamiento del script en segundo plano para que realice las copias de seguridad.</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/97fdc82920ab8b62.png"></p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/88da84adf2faf429.png"></p>
+<p>Lo configuramos para que realice las copias de forma automática.</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/d63bb0e22ef4f1b1.png"></p>
+<p>Reiniciamos el servicio cron para que se pueda ejecutar.</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/c9f60ff251243124.png"></p>
+<p>Por último comprobamos que nuestra copia de seguridad se ha realizado de forma correcta comprobando los archivos que se han copiado.</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/6ef176b39f67554.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Encriptación de particiones:" duration="0">
+        <p>En primer lugar, accedemos al disco duro y creamos una nueva tabla de particiones vacía.</p>
+<p>Creamos una nueva partición de 512MB (Primaria al principio), que se usará como boot, la usamos como sistema de ficheros EXT2, le asignaremos las opciones de montaje: nodev, nosuid, noexec y ro. Activamos la marca de arranque y marcamos que se ha terminado la partición.</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/29fc003ce4a77ab2.png"></p>
+<p>Configuramos los volúmenes cifrados y seleccionamos la opción de crear volúmenes cifrados, eligiendo la partición que queremos cifrar.</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/527678ea0021c4d9.png"></p>
+<p>Le damos a continuar, terminar y esperamos a que termine.</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/d36059e0f01a722a.png"></p>
+<p>Introducimos nuestra frase de contraseña para el cifrado.</p>
+<p>Vamos a la configuración del gestor de volúmenes lógicos.</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/9503fdadd0fe99dc.png"></p>
+<p>Creamos un grupo de volúmenes que en nuestro caso se llamará: crypto-vg.</p>
+<p>Seleccionamos la partición encriptada.</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/4159b36ecd92cc7e.png"></p>
+<p>Creamos uno por uno los volúmenes necesarios para nuestro sistema.</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/a2441a812a53417d.png"></p>
+<p>Vamos a nuestras particiones y una por una asignamos el punto de montaje y el sistema de ficheros de cada partición, en este caso haremos la primera y en el siguiente punto podremos ver las opciones a elegir en el resto de particiones.</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/995b386c5871f1d8.png"></p>
+<p>Una vez asignado el punto de montaje de cada una de nuestras particiones nos aparecerá un resumen en el cual podemos ver todos los cambios que hemos realizado en nuestras particiones.</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/abab231316b74fcf.png"></p>
+<p>Ahora seleccionamos finalizar el particionado y escribir los cambios en el disco.</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/96d214c8865839e7.png"></p>
+<p>Escribimos los cambios en el disco.</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/541465413e88c76a.png"></p>
+<p>Esperamos que se termine de instalar el sistema con la configuración que hemos realizado.</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/f82d08a2668662e3.png"></p>
+<p>Instalamos las utilidades estándar del sistema y el ssh server para poder acceder al servidor de forma remota y finalizamos la instalación.</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/d54d9d40721db07e.png"></p>
+<p>Instalamos Grub Seleccionando nuestro disco duro para que se instale en este.</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/b278023cc07f7dbb.png"></p>
+<p>Finalizamos la instalación y si todo ha salido bien no debería salir ningún error.</p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/c0dacec784aba24d.png"></p>
+<p class="image-container"><img alt="Aquí va una imagen" src="img/149ea6af6b7f8247.png"></p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>
